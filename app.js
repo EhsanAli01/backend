@@ -14,7 +14,11 @@ cloudinary.config({
     api_secret: 'QI74kpK0jpyEJ-Uh39vsJAxW6x8'
 });
 
-app.use(cors());
+app.use(
+    cors({
+    origin: "*",
+  })
+);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
