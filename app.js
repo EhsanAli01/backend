@@ -28,7 +28,6 @@ callback(null, corsOptions);
 };
 
 app.use(cors());
-app.use(cors(corsOptionsDelegate));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
