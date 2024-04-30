@@ -14,12 +14,7 @@ cloudinary.config({
     api_secret: 'QI74kpK0jpyEJ-Uh39vsJAxW6x8'
 });
 
-const corsOptions = {
-    origin: 'https://web-wing.vercel.app/',
-    optionsSuccessStatus: 200,
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
