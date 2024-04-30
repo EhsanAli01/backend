@@ -14,7 +14,21 @@ cloudinary.config({
     api_secret: 'QI74kpK0jpyEJ-Uh39vsJAxW6x8'
 });
 
+const allowedOrigins= [‘http://localhost:3000', ‘https://web-wing.vercel.app/’];
+var corsOptionsDelegate = (req, callback) => {
+var corsOptions;
+console.log(req.header(‘Origin’));
+if(allowedOrigins.indexOf(req.header(‘Origin’)) !== -1) {
+corsOptions = { origin: true };
+}
+else {
+corsOptions = { origin: false };
+}
+callback(null, corsOptions);
+};
+
 app.use(cors());
+app.use(cors(corsOptionsDelegate));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
